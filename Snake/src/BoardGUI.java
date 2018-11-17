@@ -1,5 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.security.Key;
 
 public class BoardGUI {
 
@@ -12,14 +15,15 @@ public class BoardGUI {
         jFrame.setSize(getBoardH(),getBoardW());
         jFrame.setResizable(false);
         jFrame.setTitle("Snake");
-        //background colour not working?
         jFrame.setBackground(Color.black);
         jFrame.setVisible(true);
         // Set location where jframe appears - https://stackoverflow.com/questions/2442599/how-to-set-jframe-to-appear-centered-regardless-of-monitor-resolution
         jFrame.setLocationRelativeTo(null);
-        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Snake snake = new Snake();
         jFrame.add(snake);
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
     }
 
 
@@ -34,5 +38,7 @@ public class BoardGUI {
     public int getBoardW() {
         return BoardW;
     }
+
+
 }
 
