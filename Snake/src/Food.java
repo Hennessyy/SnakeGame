@@ -7,14 +7,14 @@ public class Food {
     * collision detection.*/
 
     private int locationX;
-    private int  locationY;
+    private int locationY;
     private int wd;
     private int ht;
 
 
     //constructor
 
-    public void Food(int locationX,int locationY,int tileSize){
+    public Food(int locationX,int locationY,int tileSize){
         this.locationX=locationX;
         this.locationY=locationY;
         wd=tileSize;
@@ -43,6 +43,10 @@ public class Food {
     }
 
     //draw method
+
+    public void tick(){
+
+    }
 
     public void draw(Graphics grap){
         grap.setColor(Color.GREEN);

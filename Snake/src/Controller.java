@@ -44,7 +44,7 @@ public class Controller extends JPanel implements Runnable, KeyListener {
         addKeyListener(this);
 
         snake = new ArrayList<Snake>();
-        food = new ArrayList<Food>();
+        foods = new ArrayList<Food>();
 
         start();
 
@@ -82,22 +82,26 @@ public class Controller extends JPanel implements Runnable, KeyListener {
             snake.add(s);
         }
 
-        //Trying to generate food to the board. -- Nothing working..
+        //Trying to generate food to the board. -- Now fixed! - Had void header in Food
 
         if(foods.size()==0){
+            //creating a random location for the new piece of food.
+                int locX = (int) (Math.random() * 60);
+                int locY = (int) (Math.random() * 60);
 
-            int locX;
-            int locY;
-
-            for (int i = 0;i<1; i++)
-            {
-                locX = (int)(Math.random()*80);
-                locY = (int)(Math.random()*80);
                 f = new Food(locX,locY,10);
+
                 foods.add(f);
+        }
+
+        for (int j=0;j<foods.size();j++){
+            //if the food is eaten it is removed from the array and the length of the snake is increased.
+            if(xLocation == foods.get(j).getLocationX() && yLocation == foods.get(j).getLocationY()){
+                length++;
+                foods.remove(j);
+                j--;
 
             }
-
         }
 
 
@@ -146,6 +150,12 @@ public class Controller extends JPanel implements Runnable, KeyListener {
         for(int i=0;i<snake.size();i++){
             snake.get(i).draw(grap);
         }
+
+
+        for (int i=0;i<foods.size();i++){
+            foods.get(i).draw(grap);
+        }
+
 
     }
 
