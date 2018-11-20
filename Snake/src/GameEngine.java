@@ -8,7 +8,11 @@ public class GameEngine {
 
     BoardGUI board = new BoardGUI();
 
+/*Current issues
 
-
-    }
+-Snake can turn around into itself. - Need some collision detection.
+-Snake can go off the map when it should be coming out the other side.
+-Don't have food on the map yet.
+-
+*/    }
 }
