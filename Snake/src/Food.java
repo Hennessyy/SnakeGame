@@ -1,3 +1,4 @@
+import java.awt.*;
 public class Food {
 
     /*Creating attributes for where the location of the food will be generated, this will be done using a Math.random
@@ -7,6 +8,18 @@ public class Food {
 
     private int locationX;
     private int  locationY;
+    private int wd;
+    private int ht;
+
+
+    //constructor
+
+    public void Food(int locationX,int locationY,int tileSize){
+        this.locationX=locationX;
+        this.locationY=locationY;
+        wd=tileSize;
+        ht=tileSize;
+    }
 
 
 
@@ -27,6 +40,14 @@ public class Food {
 
     public int getLocationY() {
         return locationY;
+    }
+
+    //draw method
+
+    public void draw(Graphics grap){
+        grap.setColor(Color.GREEN);
+        grap.fillRect(locationX*wd,locationY*ht,wd,ht);
+
     }
 
 

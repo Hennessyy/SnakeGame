@@ -1,10 +1,7 @@
-import sun.awt.SunHints;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.security.Key;
 import java.util.ArrayList;
 
 public class Controller extends JPanel implements Runnable, KeyListener {
@@ -19,9 +16,14 @@ public class Controller extends JPanel implements Runnable, KeyListener {
     private boolean right  = false;
 
 
-    //
+    //Arraylist for the snake.
     private Snake s;
     private ArrayList<Snake> snake;
+
+    //Arraylist for the food.
+    private Food f;
+    private ArrayList<Food>foods;
+
     //x and y cords for where the head of the snake will appear.
     private int xLocation=10;
     private int yLocation=10;
@@ -42,6 +44,7 @@ public class Controller extends JPanel implements Runnable, KeyListener {
         addKeyListener(this);
 
         snake = new ArrayList<Snake>();
+        food = new ArrayList<Food>();
 
         start();
 
@@ -78,6 +81,27 @@ public class Controller extends JPanel implements Runnable, KeyListener {
             s = new Snake(xLocation,yLocation,10);
             snake.add(s);
         }
+
+        //Trying to generate food to the board. -- Nothing working..
+
+        if(foods.size()==0){
+
+            int locX;
+            int locY;
+
+            for (int i = 0;i<1; i++)
+            {
+                locX = (int)(Math.random()*80);
+                locY = (int)(Math.random()*80);
+                f = new Food(locX,locY,10);
+                foods.add(f);
+
+            }
+
+        }
+
+
+
         ticks++;
         // ticks are responsible for speed of snake.
         if(ticks > 9000){
@@ -98,6 +122,8 @@ public class Controller extends JPanel implements Runnable, KeyListener {
                 snake.remove(0);
 
             }
+
+
         }
     }
 
