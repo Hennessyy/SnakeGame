@@ -10,7 +10,6 @@ public class BoardGUI extends JPanel{
     public BoardGUI(){
         JFrame jFrame = new JFrame();
         jFrame.setPreferredSize(new Dimension(getBoardW(),getBoardH()));
-
         // found .pack in class notes
         jFrame.pack();
         jFrame.setResizable(false);

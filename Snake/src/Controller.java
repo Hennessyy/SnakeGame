@@ -46,8 +46,6 @@ public class Controller extends JPanel implements Runnable, KeyListener {
 
     }
 
-
-
     //tick method is responsible for updating the game. - Now working!
 
     public void tick() {
@@ -81,14 +79,13 @@ public class Controller extends JPanel implements Runnable, KeyListener {
             }
         }
 
-
-        //checks all 4 sides and of the board and if they are over or under the amount it brings the snake out
+        //checks all 4 sides of the board and if they are over or under the amount it brings the snake out
         //the other side of the board.
         if(xLocationn<0 || xLocationn>72 || yLocationn<0 || yLocationn>72){
-            if(xLocationn < 0)xLocationn = 72;
-            if(xLocationn > 72) xLocationn = 0;
-            if(yLocationn < 0) yLocationn = 72;
-            if(yLocationn > 72) yLocationn =0;
+            if(xLocationn < 0)xLocationn = 74;
+            if(xLocationn > 74) xLocationn = 0;
+            if(yLocationn < 0) yLocationn = 74;
+            if(yLocationn > 74) yLocationn =0;
         }
 
 
@@ -115,18 +112,9 @@ public class Controller extends JPanel implements Runnable, KeyListener {
 
 
         }
-
-
-
-
-
     }
 
-
     public void paint(Graphics grap) {
-
-
-        grap.clearRect(0, 0, getWidth(), getHeight());
 
         grap.fillRect(0, 0, getWidth(), getHeight());
         grap.setColor(Color.BLACK);
@@ -166,15 +154,10 @@ public class Controller extends JPanel implements Runnable, KeyListener {
     }
 
 
-
-
-
-
     // A - Left Turn
     //D - Right Turn
     //W - Up
     //S- Down
-
 
     //I found out how to stop snake from turning back in its current direction from this source - https://stackoverflow.com/questions/31552958/snake-game-how-to-stop-the-game-when-the-snake-eat-itself
 
@@ -216,12 +199,10 @@ public class Controller extends JPanel implements Runnable, KeyListener {
 
     }
 
-
     @Override
     public void keyTyped(KeyEvent e) {
 
     }
-
 
     @Override
     public void run() {
