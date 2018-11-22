@@ -32,8 +32,22 @@ public class Controller extends JPanel implements Runnable, KeyListener {
 
     private int ticks = 0;
 
+    //game states
+
+    private Menu menu;
+
+    private enum STATE{
+    MENU,
+    CONTROLLER
+    }
+
+    private STATE State = STATE.MENU;
+
+
 
     public Controller() {
+
+        menu = new Menu();
 
         setFocusable(true);
 
@@ -49,72 +63,81 @@ public class Controller extends JPanel implements Runnable, KeyListener {
     //tick method is responsible for updating the game. - Now working!
 
     public void tick() {
-        System.out.println("running");
-        //If there is nothing in the snake arraylist we create a new snake.
-        if (snake.size() == 0) {
-            s = new Snake(xLocationn, yLocationn, 10);
-            snake.add(s);
-        }
-
-        //Trying to generate food to the board. -- Now fixed! - Had void header in Food
-
-        if (foods.size() == 0) {
-            //creating a random location for the new piece of food.
-            int locX = (int) (Math.random() * 60);
-            int locY = (int) (Math.random() * 60);
-
-            f = new Food(locX, locY, 10);
-
-            foods.add(f);
-        }
-
-        for (int j = 0; j < foods.size(); j++) {
-            //if the food is eaten it is removed from the array and the length of the snake is increased.
-            if (xLocationn == foods.get(j).getLocationX() && yLocationn == foods.get(j).getLocationY()) {
-                length++;
-                foods.remove(j);
-                j--;
 
 
+
+        if(State == STATE.CONTROLLER){
+
+            //If there is nothing in the snake arraylist we create a new snake.
+            if (snake.size() == 0) {
+                s = new Snake(xLocationn, yLocationn, 10);
+                snake.add(s);
             }
-        }
 
-        //checks all 4 sides of the board and if they are over or under the amount it brings the snake out
-        //the other side of the board.
-        if(xLocationn<0 || xLocationn>72 || yLocationn<0 || yLocationn>72){
-            if(xLocationn < 0)xLocationn = 74;
-            if(xLocationn > 74) xLocationn = 0;
-            if(yLocationn < 0) yLocationn = 74;
-            if(yLocationn > 74) yLocationn =0;
-        }
+            //Trying to generate food to the board. -- Now fixed! - Had void header in Food
 
+            if (foods.size() == 0) {
+                //creating a random location for the new piece of food.
+                int locX = (int) (Math.random() * 60);
+                int locY = (int) (Math.random() * 60);
 
-        ticks++;
-        // ticks are responsible for speed of snake.
-        if (ticks > 9000) {
-            //changing the coordinates of the snake
-            if (right) xLocationn++;
-            if (left) xLocationn--;
-            if (up) yLocationn--;
-            if (down) yLocationn++;
+                f = new Food(locX, locY, 10);
 
-            ticks = 0;
+                foods.add(f);
+            }
 
-            //adds one piece to the snake and removes the piece in the previous spot.
-            s = new Snake(xLocationn, yLocationn, 10);
-            snake.add(s);
+            for (int j = 0; j < foods.size(); j++) {
+                //if the food is eaten it is removed from the array and the length of the snake is increased.
+                if (xLocationn == foods.get(j).getLocationX() && yLocationn == foods.get(j).getLocationY()) {
+                    length++;
+                    foods.remove(j);
+                    j--;
 
 
-            if (snake.size() > length) {
-                snake.remove(0);
+                }
+            }
 
+            //checks all 4 sides of the board and if they are over or under the amount it brings the snake out
+            //the other side of the board.
+            if (xLocationn < 0 || xLocationn > 74 || yLocationn < 0 || yLocationn > 74) {
+                if (xLocationn < 0) xLocationn = 74;
+                if (xLocationn > 74) xLocationn = 0;
+                if (yLocationn < 0) yLocationn = 74;
+                if (yLocationn > 74) yLocationn = 0;
             }
 
 
+            ticks++;
+            // ticks are responsible for speed of snake.
+            if (ticks > 9000) {
+                //changing the coordinates of the snake
+                if (right) xLocationn++;
+                if (left) xLocationn--;
+                if (up) yLocationn--;
+                if (down) yLocationn++;
+
+                ticks = 0;
+
+                //adds one piece to the snake and removes the piece in the previous spot.
+                s = new Snake(xLocationn, yLocationn, 10);
+                snake.add(s);
+
+
+                if (snake.size() > length) {
+                    snake.remove(0);
+
+                }
+
+
+            }
+        }else if(State == STATE.MENU){
+            menu.render(getGraphics());
         }
     }
 
     public void paint(Graphics grap) {
+
+        if(State == STATE.CONTROLLER)
 
         grap.fillRect(0, 0, getWidth(), getHeight());
         grap.setColor(Color.BLACK);
@@ -164,33 +187,36 @@ public class Controller extends JPanel implements Runnable, KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
 
-        int key = e.getKeyCode();
+        if (State == STATE.CONTROLLER) {
+
+            int key = e.getKeyCode();
 
 
-        if (key == KeyEvent.VK_D && left == false) {
-            up = false;
-            down = false;
-            right = true;
+            if (key == KeyEvent.VK_D && left == false) {
+                up = false;
+                down = false;
+                right = true;
+            }
+
+            if (key == KeyEvent.VK_A && right == false) {
+                up = false;
+                down = false;
+                left = true;
+            }
+
+            if (key == KeyEvent.VK_W && down == false) {
+                up = true;
+                left = false;
+                right = false;
+            }
+
+            if (key == KeyEvent.VK_S && up == false) {
+                down = true;
+                left = false;
+                right = false;
+            }
+
         }
-
-        if (key == KeyEvent.VK_A && right == false) {
-            up = false;
-            down = false;
-            left = true;
-        }
-
-        if (key == KeyEvent.VK_W && down == false) {
-            up = true;
-            left = false;
-            right = false;
-        }
-
-        if (key == KeyEvent.VK_S && up == false) {
-            down = true;
-            left = false;
-            right = false;
-        }
-
 
     }
 
@@ -206,10 +232,13 @@ public class Controller extends JPanel implements Runnable, KeyListener {
 
     @Override
     public void run() {
-        while (running) {
-            tick();
-            repaint();
-        }
+
+
+            while (running) {
+
+                tick();
+                repaint();
+                }
 
     }
 
