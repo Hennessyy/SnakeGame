@@ -12,7 +12,7 @@ public class MouseInput implements MouseListener {
 
 
         //Play button cords  -- Working
-        if(mx >= 315 && mx <= 395){
+        if(mx >= 315 && mx <= 465){
             if(my >=150 &&my <= 220){
                 Controller.State = Controller.STATE.CONTROLLER;
             }
@@ -25,7 +25,7 @@ public class MouseInput implements MouseListener {
 
 
         //Quit Button -- Working
-        if(mx >= 315 && mx <= 395){
+        if(mx >= 315 && mx <= 465){
             if(my >=450 &&my <= 530){
                 System.exit(0);
             }

@@ -14,9 +14,6 @@ public class Menu {
 
     public void render(Graphics graphics){
 
-
-
-
         Font fnt = new Font("arial",Font.BOLD,70);
         graphics.setFont(fnt);
         graphics.setColor(Color.BLACK);
