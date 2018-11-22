@@ -101,6 +101,7 @@ public class Controller extends JPanel implements Runnable, KeyListener {
                 foods.remove(j);
                 j--;
 
+
             }
         }
 
@@ -165,35 +166,36 @@ public class Controller extends JPanel implements Runnable, KeyListener {
     //S- Down
 
 
+
+
+
+    //I found out how to stop snake from turning back in its current direction from this source - https://stackoverflow.com/questions/31552958/snake-game-how-to-stop-the-game-when-the-snake-eat-itself
+
     @Override
     public void keyPressed(KeyEvent e) {
 
         int key = e.getKeyCode();
 
 
-        if(key == KeyEvent.VK_D ){
+        if(key == KeyEvent.VK_D && left == false){
             up = false;
             down= false;
-            left= false;
             right= true;
         }
 
-        if(key == KeyEvent.VK_A){
+        if(key == KeyEvent.VK_A && right == false){
             up =false;
             down=false;
             left=true;
-            right=false;
         }
 
-        if(key == KeyEvent.VK_W){
+        if(key == KeyEvent.VK_W && down == false){
             up =true;
-            down=false;
             left=false;
             right=false;
         }
 
-        if(key == KeyEvent.VK_S){
-            up =false;
+        if(key == KeyEvent.VK_S && up == false){
             down=true;
             left=false;
             right=false;

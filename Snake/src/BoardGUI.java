@@ -1,8 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.security.Key;
+
 
 public class BoardGUI extends JPanel{
 
@@ -40,6 +38,12 @@ public class BoardGUI extends JPanel{
         return BoardW;
     }
 
+    public int getGameScore() {
+        return gameScore;
+    }
 
+    public void setGameScore(int gameScore) {
+        this.gameScore = gameScore;
+    }
 }
 
