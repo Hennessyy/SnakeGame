@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 
-
 public class BoardGUI extends JPanel{
 
     private final int BoardH = 750;
@@ -11,6 +10,7 @@ public class BoardGUI extends JPanel{
     public BoardGUI(){
         JFrame jFrame = new JFrame();
         jFrame.setPreferredSize(new Dimension(getBoardW(),getBoardH()));
+
         // found .pack in class notes
         jFrame.pack();
         jFrame.setResizable(false);
@@ -25,10 +25,7 @@ public class BoardGUI extends JPanel{
 
     }
 
-
-
     //accessor methods
-
 
     public int getBoardH() {
         return BoardH;

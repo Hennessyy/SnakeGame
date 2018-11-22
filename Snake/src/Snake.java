@@ -10,8 +10,6 @@ public class Snake{
     to move in the specific direction.
      */
 
-
-
     public Snake(int xLocation,int yLocation,int tileSize){
         this.xLocation = xLocation;
         this.yLocation =yLocation;
@@ -25,13 +23,10 @@ public class Snake{
     private int wd;
     private int ht;
 
-
-
-
     public void draw(Graphics grap){
 
         grap.fillRect(xLocation*wd+2,yLocation*ht+2,wd-8,ht-8);
-        grap.setColor(Color.RED);
+        grap.setColor(Color.BLUE);
         grap.fillRect(xLocation*wd+2,yLocation*ht+2,wd-4,ht-4);
     }
 

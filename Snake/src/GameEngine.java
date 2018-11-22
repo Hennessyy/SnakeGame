@@ -9,7 +9,9 @@ public class GameEngine {
     BoardGUI board = new BoardGUI();
 
 /*Current issues & to-do
--Snake can go off the map when it should be coming out the other side.
--Must implement a way to increase the game score and display it to the screen
+-Snake needs to stop when the snakes head hits the body.
+-Must implement a way to increase the game score and display it to the screen.
+-Must create a main menu with music in the background.wd
+-Must put sound effect when snake eats food.
 */    }
 }

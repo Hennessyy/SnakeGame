@@ -11,7 +11,6 @@ public class Food {
     private int wd;
     private int ht;
 
-
     //constructor
 
     public Food(int locationX,int locationY,int tileSize){
@@ -20,8 +19,6 @@ public class Food {
         wd=tileSize;
         ht=tileSize;
     }
-
-
 
     //mutator methods
     public void setLocationX(int locationX) {
@@ -44,18 +41,11 @@ public class Food {
 
     //draw method
 
-    public void tick(){
-
-    }
-
     public void draw(Graphics grap){
         grap.setColor(Color.GREEN);
         grap.fillRect(locationX*wd,locationY*ht,wd,ht);
 
     }
-
-
-
 
 }
 
