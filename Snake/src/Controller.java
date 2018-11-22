@@ -34,14 +34,14 @@ public class Controller extends JPanel implements Runnable, KeyListener {
 
     //game states
 
-    private Menu menu;
+    public static Menu menu;
 
-    private enum STATE{
+    public enum STATE{
     MENU,
     CONTROLLER
     }
 
-    private STATE State = STATE.MENU;
+    public static STATE State = STATE.MENU;
 
 
 
@@ -50,7 +50,7 @@ public class Controller extends JPanel implements Runnable, KeyListener {
         menu = new Menu();
 
         setFocusable(true);
-
+        addMouseListener(new MouseInput());
         addKeyListener(this);
 
         snake = new ArrayList<Snake>();
@@ -109,7 +109,7 @@ public class Controller extends JPanel implements Runnable, KeyListener {
 
             ticks++;
             // ticks are responsible for speed of snake.
-            if (ticks > 9000) {
+            if (ticks > 200000) {
                 //changing the coordinates of the snake
                 if (right) xLocationn++;
                 if (left) xLocationn--;
