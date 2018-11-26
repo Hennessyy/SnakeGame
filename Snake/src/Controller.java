@@ -1,3 +1,6 @@
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
 import javax.swing.*;
 
 import java.awt.*;
@@ -12,90 +15,41 @@ import java.util.ArrayList;
 
 public class Controller extends JPanel implements Runnable, KeyListener {
 
-
-
-
     //game loop attributes
-
-
     private Thread thread;
-
-
     private boolean running = true;
 
-
     //direction attributes.
-
-
     private boolean up = false;
-
 
     private boolean down = false;
 
-
     private boolean left = false;
-
 
     private boolean right = false;
 
-
-
-
-
-
     //Arraylist for the snake.
-
-
     private Snake s;
-
-
     private ArrayList<Snake> snake;
-
-
-
 
     //Arraylist for the food.
 
-
     private Food f;
-
-
     private ArrayList<Food> foods;
 
-
-
-
     //x and y cords for where the head of the snake will appear.
-
-
     private int xLocationn = 37;
-
-
     private int yLocationn = 30;
 
 
     //size the snake will be at the beginning of the game.
 
-
     private int length = 3;
-
-
-
-
     private int ticks = 0;
-
-
-
 
     //game states
 
-
-
-
     public static Menu menu;
-
-
-
 
     public enum STATE{
 
@@ -107,10 +61,23 @@ public class Controller extends JPanel implements Runnable, KeyListener {
 
     }
 
-
-
-
     public static STATE State = STATE.MENU;
+
+
+
+    //attribute for gamescore
+
+
+    private int gamescore=0;
+
+
+    //sound effect for snake eating food -  https://stackoverflow.com/questions/6045384/playing-mp3-and-wav-in-java
+
+   /* String bip = "C:\\Users\\Leon\\Desktop\\projects\\Snake\\assets\\munch.mp3";
+    Media hit = new Media(new File(bip).toURI().toString());
+    MediaPlayer mediaPlayer = new MediaPlayer(hit);*/
+
+
 
 
 
@@ -158,11 +125,7 @@ public class Controller extends JPanel implements Runnable, KeyListener {
 
 
     //JB added code below to check to see whether the snake's head collides with some part of the snakes body
-
-
     //if it does return true and exit immediately, with a suitable message
-
-
 
 
     public boolean snakeCollidesWithItself()
@@ -187,14 +150,10 @@ public class Controller extends JPanel implements Runnable, KeyListener {
 
 
 
+
         return false;
 
     }
-
-
-
-
-
 
 
 
@@ -274,6 +233,10 @@ public class Controller extends JPanel implements Runnable, KeyListener {
 
                 if (xLocationn == foods.get(j).getLocationX() && yLocationn == foods.get(j).getLocationY()) {
 
+
+                   // mediaPlayer.play();
+
+                    gamescore=gamescore+10;
 
                     length++;
 
@@ -402,7 +365,7 @@ public class Controller extends JPanel implements Runnable, KeyListener {
 
 
 
-            if(length>7 && snakeCollidesWithItself())
+            if(length>3 && snakeCollidesWithItself())
 
 
             {
@@ -410,39 +373,14 @@ public class Controller extends JPanel implements Runnable, KeyListener {
 
                 System.out.println("The snake has collided with itself!!! Game Over!!!");
 
-
                 thread.stop();
 
 
             }
 
-
-
-
-
-
-
-        }/*else if(State == STATE.MENU){
-
-
-
-
-
-	 menu.render(getGraphics());
-
-
-
-
-	 }*/
-
-
-        System.out.println(ticks);
-
+        }
 
     }
-
-
-
 
 
 
@@ -483,29 +421,23 @@ public class Controller extends JPanel implements Runnable, KeyListener {
 
 
 
-
-
-
             for (int i = 0; i < snake.size(); i++) {
-
 
                 snake.get(i).draw(grap);
 
-
             }
-
-
-
 
 
 
             for (int i = 0; i < foods.size(); i++) {
 
-
                 foods.get(i).draw(grap);
 
-
             }
+
+
+            grap.setColor(Color.WHITE);
+            grap.drawString("Score : "+gamescore,10,10);
 
 
         }
@@ -698,36 +630,17 @@ public class Controller extends JPanel implements Runnable, KeyListener {
 
     }
 
-
-
-
     @Override
-
-
     public void keyReleased(KeyEvent e) {
 
-
-
     }
 
-
-
-
     @Override
-
-
     public void keyTyped(KeyEvent e) {
 
-
-
     }
 
-
-
-
     @Override
-
-
     public void run() {
 
 

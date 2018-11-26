@@ -9,8 +9,7 @@ public class GameEngine {
     BoardGUI board = new BoardGUI();
 
 /*Current issues & to-do
--Must implement a way to increase the game score and display it to the screen.
--Must add music to the main menu.
--Must put sound effect when snake eats food.
+-Must put sound effect when snake eats food. - Won't work..
+-create a highscores section.
 */    }
 }

@@ -1,6 +1,9 @@
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 
-public class Menu {
+public class Menu{
 
 
     //Creating main menu which will contain 3 buttons - Play, Highscore and Quit
@@ -11,8 +14,19 @@ public class Menu {
     public Rectangle highScoresButton = new Rectangle(240,300,310,80);
     public Rectangle quitButton = new Rectangle(315,450,150,80);
 
+    private ImageIcon image;
+
 
     public void render(Graphics graphics){
+
+
+        image = new ImageIcon("assets\\bluesnake.jpg");
+        JLabel jLabel = new JLabel(image);
+        jLabel.setBounds(0,0,750,750);
+
+
+
+
 
         Font fnt = new Font("arial",Font.BOLD,70);
         graphics.setFont(fnt);

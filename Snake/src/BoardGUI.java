@@ -1,11 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import javax.imageio.ImageIO;
 
 public class BoardGUI extends JPanel{
 
     private final int BoardH = 750;
     private final int BoardW =750;
-    private int gameScore = 0;
+
 
     public BoardGUI(){
         JFrame jFrame = new JFrame();
@@ -22,6 +24,7 @@ public class BoardGUI extends JPanel{
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
+
     }
 
     //accessor methods
@@ -34,12 +37,6 @@ public class BoardGUI extends JPanel{
         return BoardW;
     }
 
-    public int getGameScore() {
-        return gameScore;
-    }
 
-    public void setGameScore(int gameScore) {
-        this.gameScore = gameScore;
-    }
 }
 
