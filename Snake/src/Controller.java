@@ -372,7 +372,8 @@ public class Controller extends JPanel implements Runnable, KeyListener {
             {
 
 
-                JOptionPane.showMessageDialog(null,"The snake has collided with itself!!! Game Over!!!","Game Over", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,"The snake has collided with itself! Game Over!\n" +
+                        "Your Score was "+gamescore,"Game Over", JOptionPane.ERROR_MESSAGE);
                 System.exit(0);
 
                 thread.stop();
