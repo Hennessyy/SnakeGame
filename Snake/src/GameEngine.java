@@ -8,8 +8,9 @@ public class GameEngine {
 
     BoardGUI board = new BoardGUI();
 
-/*Current issues & to-do
--Must put sound effect when snake eats food. - Won't work..
+/*Current issues
+Tried to implement a munching noise when the snake ate the food but couldn't manage to
+get it working - commented out the code and added a reference to where I got it from.
 
 */    }
 }

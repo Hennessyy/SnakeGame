@@ -143,8 +143,6 @@ public class Controller extends JPanel implements Runnable, KeyListener {
 
             {
 
-                System.out.println("Collision has occurred!!!");
-
                 return true;
 
             }

@@ -11,7 +11,7 @@ public class Snake{
      */
 
     /**
-     *Snake construtor method which takes in
+     *Snake constructor method which takes in
      * 3 parameters and assigns them to the x and y location
      * and the height and width of the snake.
      *
