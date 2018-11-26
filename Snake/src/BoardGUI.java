@@ -1,17 +1,19 @@
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class BoardGUI extends JPanel{
 
     private final int BoardH = 750;
     private final int BoardW =750;
+    public static JFrame jFrame;
 
 
-    public BoardGUI(){
-        JFrame jFrame = new JFrame();
-        jFrame.setPreferredSize(new Dimension(getBoardW(),getBoardH()));
+    public BoardGUI() {
+        jFrame = new JFrame();
+        jFrame.setPreferredSize(new Dimension(getBoardW(), getBoardH()));
         // found .pack in class notes
         jFrame.pack();
         jFrame.setResizable(false);

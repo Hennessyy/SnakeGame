@@ -2,6 +2,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 
 public class Menu{
 
@@ -20,17 +21,17 @@ public class Menu{
     public void render(Graphics graphics){
 
 
-        image = new ImageIcon("assets\\bluesnake.jpg");
+        //image = new ImageIcon("assets\\bluesnake.jpg");
         JLabel jLabel = new JLabel(image);
         jLabel.setBounds(0,0,750,750);
 
-
+        graphics.drawImage(new ImageIcon("assets\\bluesnake.jpg").getImage(),0,0,null);
 
 
 
         Font fnt = new Font("arial",Font.BOLD,70);
         graphics.setFont(fnt);
-        graphics.setColor(Color.BLACK);
+        graphics.setColor(Color.WHITE);
         graphics.drawString("S N A K E", 220,100);
 
         Font fnt1 = new Font("arial",Font.BOLD,50);
