@@ -10,6 +10,16 @@ public class Snake{
     to move in the specific direction.
      */
 
+    /**
+     *Snake construtor method which takes in
+     * 3 parameters and assigns them to the x and y location
+     * and the height and width of the snake.
+     *
+     * @param xLocation
+     * @param yLocation
+     * @param tileSize
+     */
+
     public Snake(int xLocation,int yLocation,int tileSize){
         this.xLocation = xLocation;
         this.yLocation =yLocation;
@@ -23,6 +33,14 @@ public class Snake{
     private int wd;
     private int ht;
 
+    /**
+     * Draw method which uses graphics to draw the
+     * the snake to the board.
+     *
+     *
+     * @param grap
+     */
+
     public void draw(Graphics grap){
 
         grap.fillRect(xLocation*wd+2,yLocation*ht+2,wd-8,ht-8);
@@ -33,36 +51,85 @@ public class Snake{
 
     //mutator methods
 
+    /**
+     *Mutator method to assign the xLocation to the snake object
+     *
+     * @param xLocation
+     */
+
     public void setxCord(int xLocation) {
         this.xLocation = xLocation;
     }
+
+    /**
+     * Mutator method to assign the yLocation to the snake object
+     *
+     *
+     * @param yLocation
+     */
 
     public void setyCord(int yLocation) {
         this.yLocation = yLocation;
     }
 
 
+    /**
+     *Mutator method to assign the height to the snake object
+     *
+     * @param ht
+     */
+
     public void setHt(int ht) {
         this.ht = ht;
     }
 
 
+    /**
+     *Mutator method to assign the width to the snake object
+     *
+     * @param wd
+     */
+
     public void setWd(int wd) {
         this.wd = wd;
     }
 
+
+
+
     //accessor methods
+
+
+    /**
+     *Accessor method to assess the xLocation to the snake object
+     *
+     */
     public int getxLocation() {
         return xLocation;
     }
+
+    /**
+     * Accessor method to assess the yLocation to the snake object
+     *
+     *
+     */
 
     public int getyLocation() {
         return yLocation;
     }
 
+    /**
+     *Accessor method to assess the height to the snake object
+     *
+     */
     public int getHt() {
         return ht;
     }
+
+    /**
+     *Accessor method to assess the width to the snake object
+     *
+     */
 
     public int getWd() {
         return wd;
