@@ -1,5 +1,6 @@
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import jdk.nashorn.internal.scripts.JO;
 
 import javax.swing.*;
 
@@ -371,7 +372,8 @@ public class Controller extends JPanel implements Runnable, KeyListener {
             {
 
 
-                System.out.println("The snake has collided with itself!!! Game Over!!!");
+                JOptionPane.showMessageDialog(null,"The snake has collided with itself!!! Game Over!!!","Game Over", JOptionPane.ERROR_MESSAGE);
+                System.exit(0);
 
                 thread.stop();
 
