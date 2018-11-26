@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -21,6 +22,15 @@ public class MouseInput implements MouseListener {
 
 
         //Highscores Button
+
+        if(mx >= 315 && mx <= 465){
+            if(my >=300 &&my <= 370){
+                JOptionPane.showMessageDialog(null,"HIGHSCORES          SCORE\n\nRANK 1 - PLAYER X  - 2510\n\nRANK 2 - PLAYER Y - 2250\n\nRANK 3 - PLAYER Z - 1990");
+            }
+
+        }
+
+
 
 
 

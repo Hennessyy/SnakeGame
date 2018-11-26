@@ -10,6 +10,6 @@ public class GameEngine {
 
 /*Current issues & to-do
 -Must put sound effect when snake eats food. - Won't work..
--create a highscores section.
+
 */    }
 }
